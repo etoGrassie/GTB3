@@ -13,13 +13,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_GTBMainWindow(object):
 
-    pushButton_open_file = None
-
     def setupUi(self, GTBMainWindow):
         GTBMainWindow.setObjectName("GTBMainWindow")
         GTBMainWindow.resize(779, 625)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("../../GithubProjects/GTB3/Resourses/pycharm.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./Resourses/pycharm.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         GTBMainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(GTBMainWindow)
         self.centralwidget.setObjectName("centralwidget")
