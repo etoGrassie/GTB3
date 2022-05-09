@@ -3,35 +3,27 @@ from PyQt5.QtWidgets import QFileDialog
 
 
 class FileControl(QObject):
+    file_path = None
+
     def __init__(self):
         super(FileControl, self).__init__()
-        self.file_path = None
 
-    def user_open_and_read_file(self):
-        file_path = self.user_open_file()
-        self.file_path = file_path
-        file_index = self.read_file(file_path)
-        return file_index
-
-    def user_open_file(self):
-        file_filter = 'Task Command 3 File (*.tskx);;Task File (*.tsk)'
-        file_value = QFileDialog.getOpenFileName(caption='Open Task File', directory='./', filter=file_filter)
-        if file_value[0] is not None:
-            file_path = file_value[0]
-            print(file_path)
-            return file_path
-
-    def read_file(self, path):
-        try:
-            with open(path, 'r') as file:
-                lines = file.readlines()
-                return lines
-        except IOError:
+    def open_file_dialog(self, window_object):
+        dialog = QFileDialog.getOpenFileName(window_object, 'Open Task Command File', './',
+                                             'Task Command File (*.tskx)')
+        if bool(dialog[0]) is True:
+            self.file_path = dialog[0]
+            return True
+        else:
+            self.file_path = None
             return
-        finally:
-            pass
 
-
-if __name__ == '__main__':
-    ctrl = FileControl()
-    ctrl.user_open_and_read_file()
+    def save_file_dialog(self, window_object):
+        dialog = QFileDialog.getSaveFileName(self, window_object, 'Save Output File', './',
+                                             'Task Command File (*.tskx)')
+        if bool(dialog[0]) is True:
+            self.file_path = dialog[0]
+            return True
+        else:
+            self.file_path = None
+            return False
