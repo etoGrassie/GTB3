@@ -1,7 +1,8 @@
 import sys
+
 from PyQt5 import QtWidgets
-from PyQt5.QtCore import QObject
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtCore import QObject, QThread, pyqtSignal
+from PyQt5.QtWidgets import QMainWindow, QFileDialog
 from qt_material import apply_stylesheet
 
 from GTB3Window import Ui_GTBMainWindow
@@ -20,16 +21,35 @@ class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
         self.initUi()
 
     def initUi(self):
-        self.pushButton_open_file.clicked.connect(self.test)
+        self.tabWidget_input.currentChanged.connect(self.input)
 
         self.actionDark_Mode.triggered.connect(lambda: self.use_theme(theme='dark_blue'))
         self.actionDefault_Light.triggered.connect(lambda: self.use_theme(theme='light_blue'))
 
-    def file_mode_proceed(self):
-        self.pushButton_open_file.setText("hi")
+    def input(self):
+        current_index = self.tabWidget_input.currentIndex()
+        print('current index: ' + current_index)
+        if current_index == 0:
+            file_object = GTB3FileMode(self)
+            file_object.open_file_dialog()
 
     def use_theme(self, theme):
         apply_stylesheet(self.app, theme=theme + '.xml')
+
+
+class GTB3FileMode(QThread, QObject):
+    parent = None
+
+    def __init__(self, parent):
+        print('activated file mode')
+        self.file_path = None
+        self.parent = parent
+
+    def open_file_dialog(self):
+        dialog = QFileDialog.getOpenFileName(self, self.parent, 'Open Task Command File', './', 'Task Command File ('
+                                                                                                '*.tsk)')
+        self.file_path = dialog[0]
+
 
 
 if __name__ == "__main__":
