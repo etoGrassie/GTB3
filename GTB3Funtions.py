@@ -1,7 +1,8 @@
+from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import QFileDialog
 
 
-class FileControl:
+class FileControl(QObject):
     def __init__(self):
         super(FileControl, self).__init__()
         self.file_path = None
@@ -29,3 +30,8 @@ class FileControl:
             return
         finally:
             pass
+
+
+if __name__ == '__main__':
+    ctrl = FileControl()
+    ctrl.user_open_and_read_file()

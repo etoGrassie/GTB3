@@ -1,14 +1,13 @@
 import sys
 
-from PyQt5 import QtWidgets
 from PyQt5.QtCore import QObject
-from PyQt5.QtWidgets import QMainWindow, QFileDialog
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QWidget
 from qt_material import apply_stylesheet
 
 from GTB3Window import Ui_GTBMainWindow
 
 
-class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
+class GTB3MainWindow(Ui_GTBMainWindow, QWidget, QObject):
     """
     GTB3MainWindow is used to add more functions or features to GTB3Window.py. 
     """
@@ -17,19 +16,16 @@ class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
         super(GTB3MainWindow, self).__init__()
         self.file_path = None
         self.default_theme = 'dark_blue'
-        self.app = QtWidgets.QApplication(sys.argv)
-        self.setupUi(self)
-        self.init_link()
 
-    def init_link(self):
-        self.pushButton_open_file.clicked.connect(self.open_file)
+    def init_link(self, window_object):
+        window_object.pushButton_open_file.clicked.connect(self.open_file)
 
-        self.actionDark_Mode.triggered.connect(lambda: self.use_theme(theme='dark_blue'))
-        self.actionDefault_Light.triggered.connect(lambda: self.use_theme(theme='light_blue'))
+        window_object.actionDark_Mode.triggered.connect(lambda: self.use_theme(theme='dark_blue'))
+        window_object.actionDefault_Light.triggered.connect(lambda: self.use_theme(theme='light_blue'))
 
     def open_file(self):
         result = self.open_file_dialog()
-        if result is not None:
+        if result is True:
             with open(self.file_path, 'r') as file:
                 file_index = file.readlines()
             self.textBrowser_file_preview.setPlainText(''.join(file_index))
@@ -37,8 +33,9 @@ class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
         else:
             return
 
-    def use_theme(self, theme):
-        apply_stylesheet(self.app, theme=theme + '.xml')
+    @staticmethod
+    def use_theme(theme):
+        apply_stylesheet(app, theme=theme + '.xml')
 
     def open_file_dialog(self):
         dialog = QFileDialog.getOpenFileName(self, 'Open Task Command File', './', 'Task Command File ('
@@ -48,7 +45,7 @@ class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
             return True
         else:
             self.file_path = None
-            return False
+            return
 
     def save_file_dialog(self):
         dialog = QFileDialog.getSaveFileName(self, 'Save Output File', './', 'Task Command File (*.tskx)')
@@ -61,8 +58,12 @@ class GTB3MainWindow(Ui_GTBMainWindow, QMainWindow, QObject):
 
 
 if __name__ == "__main__":
-    ui = GTB3MainWindow()
-    app = ui.app
-    apply_stylesheet(app, theme=ui.default_theme + '.xml')
-    ui.show()
-    sys.exit(app.exec_())
+    app = QApplication(sys.argv)
+    MainWindow = QMainWindow()
+    ui = GTB3MainWindow()  # Init GTB3MainWindow
+    apply_stylesheet(app, ui.default_theme + '.xml')  # Apply default style
+    ui.setupUi(MainWindow)  # Setup UI for GTBMainWindow
+    ui.init_link(ui)  # Setup Links for GTBMainWindow
+    MainWindow.show()  # Show Window
+
+    sys.exit(app.exec_())  # Join Main Loop
