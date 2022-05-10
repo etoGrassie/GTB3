@@ -27,14 +27,17 @@ class GTB3MainWindow(Ui_GTBMainWindow, QWidget, QObject):
     def open_file_event(self):
         result = self.Functions.open_file_dialog(self)
         if result is True:
-            with open(self.Functions.file_path, 'r') as file:
+            with open(self.Functions.open_file_path, 'r') as file:
                 file_index = file.readlines()
             self.textBrowser_file_preview.setPlainText(''.join(file_index))
-            self.commandLinkButton_run.clicked.connect(lambda: self.debug('run'))
+            self.commandLinkButton_run.clicked.connect(lambda: self.run_event('file'))
             self.commandLinkButton_run.setEnabled(True)
             return
         else:
             return
+
+    def run_event(self):
+        pass
 
     @staticmethod
     def debug(msg):
