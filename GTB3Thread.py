@@ -1,25 +1,12 @@
-from PyQt5.QtCore import QThread, pyqtSignal
-from time import sleep
-
-import GTB3Funtions
-import GTB3Window
+from PyQt5.QtCore import QThread, QObject
 
 
-class GTB3ThreadFile(GTB3Window.Ui_GTBMainWindow, QThread):
-    is_running = False
-
-    def __init__(self):
+class GTB3ThreadFile(QThread, QObject):
+    def __init__(self, object_window, object_function):
         super(GTB3ThreadFile, self).__init__()
+        self.object_function = object_function
 
     def run(self):
-        file_index = GTB3Funtions.FileControl.user_open_and_read_file()
-        while self.is_running is True:
-            text = ''
-            for line in file_index:
-                text += line
-            self.textBrowser_file_preview.setPlainText(text)
-            self.commandLinkButton_run.setText()
-            sleep(5)
-
-    def setter_(self):
-        self.is_running = True
+        if not self.object_function.open_file_path:
+            self.terminate()
+            return
