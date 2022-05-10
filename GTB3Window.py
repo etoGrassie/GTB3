@@ -11,15 +11,15 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_GTBMainWindow(object):
+class MainWindow(object):
 
-    def setupUi(self, GTBMainWindow):
-        GTBMainWindow.setObjectName("GTBMainWindow")
-        GTBMainWindow.resize(779, 625)
+    def setupUi(self, window_object):
+        window_object.setObjectName("GTBMainWindow")
+        window_object.resize(779, 625)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("./Resourses/pycharm.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        GTBMainWindow.setWindowIcon(icon)
-        self.centralwidget = QtWidgets.QWidget(GTBMainWindow)
+        window_object.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(window_object)
         self.centralwidget.setObjectName("centralwidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
@@ -203,8 +203,8 @@ class Ui_GTBMainWindow(object):
         self.commandLinkButton_run.setObjectName("commandLinkButton_run")
         self.verticalLayout_3.addWidget(self.commandLinkButton_run)
         self.horizontalLayout.addWidget(self.groupBox_input)
-        GTBMainWindow.setCentralWidget(self.centralwidget)
-        self.menubar = QtWidgets.QMenuBar(GTBMainWindow)
+        window_object.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(window_object)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 779, 23))
         self.menubar.setObjectName("menubar")
         self.menuGTB = QtWidgets.QMenu(self.menubar)
@@ -219,23 +219,23 @@ class Ui_GTBMainWindow(object):
         self.menuFont.setObjectName("menuFont")
         self.menuAbout = QtWidgets.QMenu(self.menuGTB)
         self.menuAbout.setObjectName("menuAbout")
-        GTBMainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(GTBMainWindow)
+        window_object.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(window_object)
         self.statusbar.setObjectName("statusbar")
-        GTBMainWindow.setStatusBar(self.statusbar)
-        self.action_Quit = QtWidgets.QAction(GTBMainWindow)
+        window_object.setStatusBar(self.statusbar)
+        self.action_Quit = QtWidgets.QAction(window_object)
         self.action_Quit.setObjectName("action_Quit")
-        self.actionDefault_Light = QtWidgets.QAction(GTBMainWindow)
+        self.actionDefault_Light = QtWidgets.QAction(window_object)
         self.actionDefault_Light.setObjectName("actionDefault_Light")
-        self.actionDark_Mode = QtWidgets.QAction(GTBMainWindow)
+        self.actionDark_Mode = QtWidgets.QAction(window_object)
         self.actionDark_Mode.setObjectName("actionDark_Mode")
-        self.actionSet_to_Default = QtWidgets.QAction(GTBMainWindow)
+        self.actionSet_to_Default = QtWidgets.QAction(window_object)
         self.actionSet_to_Default.setObjectName("actionSet_to_Default")
-        self.actionCustomize = QtWidgets.QAction(GTBMainWindow)
+        self.actionCustomize = QtWidgets.QAction(window_object)
         self.actionCustomize.setObjectName("actionCustomize")
-        self.actionAbout_App = QtWidgets.QAction(GTBMainWindow)
+        self.actionAbout_App = QtWidgets.QAction(window_object)
         self.actionAbout_App.setObjectName("actionAbout_App")
-        self.actionGithub = QtWidgets.QAction(GTBMainWindow)
+        self.actionGithub = QtWidgets.QAction(window_object)
         self.actionGithub.setObjectName("actionGithub")
         self.menu_Application.addAction(self.action_Quit)
         self.menuWindow_Style.addAction(self.actionDefault_Light)
@@ -251,11 +251,11 @@ class Ui_GTBMainWindow(object):
         self.menuGTB.addAction(self.menuAbout.menuAction())
         self.menubar.addAction(self.menuGTB.menuAction())
 
-        self.retranslateUi(GTBMainWindow)
+        self.retranslateUi(window_object)
         self.tabWidget_output.setCurrentIndex(0)
         self.tabWidget_input.setCurrentIndex(0)
-        self.action_Quit.triggered.connect(GTBMainWindow.close)
-        QtCore.QMetaObject.connectSlotsByName(GTBMainWindow)
+        self.action_Quit.triggered.connect(window_object.close)
+        QtCore.QMetaObject.connectSlotsByName(window_object)
 
     def retranslateUi(self, GTBMainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -308,7 +308,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     GTBMainWindow = QtWidgets.QMainWindow()
-    ui = Ui_GTBMainWindow()
+    ui = MainWindow()
     ui.setupUi(GTBMainWindow)
     GTBMainWindow.show()
     sys.exit(app.exec_())
