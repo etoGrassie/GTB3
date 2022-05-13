@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>779</width>
+    <width>763</width>
     <height>625</height>
    </rect>
   </property>
@@ -14,8 +14,8 @@
    <string>GTB Release 3</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../GithubProjects/GTB3/Resourses/pycharm.ico</normaloff>../../GithubProjects/GTB3/Resourses/pycharm.ico</iconset>
+   <iconset resource="Resourses.qrc">
+    <normaloff>:/Icon/pycharm.ico</normaloff>:/Icon/pycharm.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -245,51 +245,6 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_input_IDLE">
-          <attribute name="title">
-           <string>IDLE</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QTextBrowser" name="textBrowser_IDLE">
-             <property name="focusPolicy">
-              <enum>Qt::NoFocus</enum>
-             </property>
-             <property name="placeholderText">
-              <string>Run a task to see the output here</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_single_task">
-             <property name="text">
-              <string>Input Single Task Below</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QLineEdit" name="lineEdit_IDLE_single_task">
-               <property name="placeholderText">
-                <string>Enter a task</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton_IDLE_proceed">
-               <property name="enabled">
-                <bool>true</bool>
-               </property>
-               <property name="text">
-                <string>Proceed</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
          <widget class="QWidget" name="tab_input_IDLE_multiple">
           <attribute name="title">
            <string>IDLE Multiple</string>
@@ -364,7 +319,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>779</width>
+     <width>763</width>
      <height>23</height>
     </rect>
    </property>
@@ -386,14 +341,45 @@
       <property name="title">
        <string>&amp;Window Style</string>
       </property>
-      <addaction name="actionDefault_Light"/>
-      <addaction name="actionDark_Mode"/>
+      <widget class="QMenu" name="menuLight">
+       <property name="title">
+        <string>Light</string>
+       </property>
+       <addaction name="actionYellow"/>
+       <addaction name="actionBlue"/>
+       <addaction name="actionCyan"/>
+       <addaction name="actionLightgreen"/>
+       <addaction name="actionOrange"/>
+       <addaction name="actionPink"/>
+       <addaction name="actionPurple"/>
+       <addaction name="actionRed"/>
+       <addaction name="actionTeal"/>
+       <addaction name="actionYell9ow"/>
+      </widget>
+      <widget class="QMenu" name="menuDark">
+       <property name="title">
+        <string>Dark</string>
+       </property>
+       <addaction name="actionAmber"/>
+       <addaction name="actionBlue_2"/>
+       <addaction name="actionCyan_2"/>
+       <addaction name="actionLightgreen_2"/>
+       <addaction name="actionPink_2"/>
+       <addaction name="actionPurple_2"/>
+       <addaction name="actionRed_2"/>
+       <addaction name="actionYellow_2"/>
+      </widget>
+      <addaction name="actionSet_to_default"/>
+      <addaction name="separator"/>
+      <addaction name="menuLight"/>
+      <addaction name="menuDark"/>
      </widget>
      <widget class="QMenu" name="menuFont">
       <property name="title">
        <string>&amp;Font</string>
       </property>
       <addaction name="actionSet_to_Default"/>
+      <addaction name="separator"/>
       <addaction name="actionCustomize"/>
      </widget>
      <addaction name="menuFont"/>
@@ -421,16 +407,6 @@
     <string>Ctrl+Alt+Q</string>
    </property>
   </action>
-  <action name="actionDefault_Light">
-   <property name="text">
-    <string>Default (Light)</string>
-   </property>
-  </action>
-  <action name="actionDark_Mode">
-   <property name="text">
-    <string>Dark Mode (Beta)</string>
-   </property>
-  </action>
   <action name="actionSet_to_Default">
    <property name="text">
     <string>Set to Default</string>
@@ -451,8 +427,105 @@
     <string>&amp;Github</string>
    </property>
   </action>
+  <action name="actionYellow">
+   <property name="text">
+    <string>Amber</string>
+   </property>
+  </action>
+  <action name="actionBlue">
+   <property name="text">
+    <string>Blue</string>
+   </property>
+  </action>
+  <action name="actionCyan">
+   <property name="text">
+    <string>Cyan</string>
+   </property>
+  </action>
+  <action name="actionLightgreen">
+   <property name="text">
+    <string>Lightgreen</string>
+   </property>
+  </action>
+  <action name="actionOrange">
+   <property name="text">
+    <string>Orange</string>
+   </property>
+  </action>
+  <action name="actionPink">
+   <property name="text">
+    <string>Pink</string>
+   </property>
+  </action>
+  <action name="actionPurple">
+   <property name="text">
+    <string>Purple</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionTeal">
+   <property name="text">
+    <string>Teal</string>
+   </property>
+  </action>
+  <action name="actionYell9ow">
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </action>
+  <action name="actionAmber">
+   <property name="text">
+    <string>Amber</string>
+   </property>
+  </action>
+  <action name="actionBlue_2">
+   <property name="text">
+    <string>Blue (Default)</string>
+   </property>
+  </action>
+  <action name="actionCyan_2">
+   <property name="text">
+    <string>Cyan</string>
+   </property>
+  </action>
+  <action name="actionLightgreen_2">
+   <property name="text">
+    <string>Lightgreen</string>
+   </property>
+  </action>
+  <action name="actionPink_2">
+   <property name="text">
+    <string>Pink</string>
+   </property>
+  </action>
+  <action name="actionPurple_2">
+   <property name="text">
+    <string>Purple</string>
+   </property>
+  </action>
+  <action name="actionRed_2">
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </action>
+  <action name="actionYellow_2">
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </action>
+  <action name="actionSet_to_default">
+   <property name="text">
+    <string>Set to Default</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resourses.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>action_Quit</sender>
