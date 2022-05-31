@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GTBMainWindow</class>
- <widget class="QMainWindow" name="GTBMainWindow">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,33 +14,40 @@
    <string>GTB Release 3</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="Resourses.qrc">
-    <normaloff>:/Icon/pycharm.ico</normaloff>:/Icon/pycharm.ico</iconset>
+   <iconset>
+    <normaloff>../pycharm.ico</normaloff>../pycharm.ico</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
+  <widget class="QWidget" name="central_widget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QGroupBox" name="groupBox_output">
+     <widget class="QGroupBox" name="gbox_output">
       <property name="font">
        <font>
-        <family>Microsoft YaHei UI</family>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="locale">
+       <locale language="English" country="UnitedStates"/>
       </property>
       <property name="title">
        <string>Output</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTabWidget" name="tabWidget_output">
+        <widget class="QTabWidget" name="tbox_output">
          <property name="font">
           <font>
-           <family>Microsoft YaHei UI</family>
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_output_successful">
           <attribute name="title">
@@ -48,18 +55,24 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_5">
            <item>
-            <widget class="QTextBrowser" name="textBrowser_output_successful">
+            <widget class="QTextBrowser" name="txtb_output_successful">
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
+             </property>
              <property name="placeholderText">
               <string>Run a task to see the output of successfully ran tasks</string>
              </property>
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <layout class="QHBoxLayout" name="horizontal_layout_3">
              <item>
-              <widget class="QPushButton" name="pushButton_output_save">
+              <widget class="QPushButton" name="btn_output_save">
                <property name="enabled">
                 <bool>false</bool>
+               </property>
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
                </property>
                <property name="text">
                 <string>Save Output</string>
@@ -67,9 +80,12 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_output_clear">
+              <widget class="QPushButton" name="btn_output_clear">
                <property name="enabled">
                 <bool>false</bool>
+               </property>
+               <property name="locale">
+                <locale language="English" country="UnitedStates"/>
                </property>
                <property name="text">
                 <string>Clear</string>
@@ -86,10 +102,9 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
-            <widget class="QLabel" name="label_failed_tasks">
+            <widget class="QLabel" name="lb_failed_tasks">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
              </property>
@@ -99,10 +114,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QListWidget" name="listWidget">
+            <widget class="QListWidget" name="list_widget">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
              </property>
@@ -112,10 +126,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_failed_reasons">
+            <widget class="QLabel" name="lb_failed_reasons">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
              </property>
@@ -125,10 +138,9 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_failed_reason">
+            <widget class="QLineEdit" name="ledit_failed_reason">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
              </property>
@@ -148,27 +160,31 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_input">
+     <widget class="QGroupBox" name="gbox_input">
       <property name="font">
        <font>
-        <family>Microsoft YaHei UI</family>
         <pointsize>10</pointsize>
        </font>
+      </property>
+      <property name="locale">
+       <locale language="English" country="UnitedStates"/>
       </property>
       <property name="title">
        <string>Input</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
-        <widget class="QTabWidget" name="tabWidget_input">
+        <widget class="QTabWidget" name="twidget_input">
          <property name="font">
           <font>
-           <family>Microsoft YaHei UI</family>
            <pointsize>10</pointsize>
           </font>
          </property>
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
+         </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_input_file">
           <attribute name="title">
@@ -176,12 +192,14 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <widget class="QLabel" name="label_file_select">
+            <widget class="QLabel" name="lb_file_select">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
              </property>
              <property name="text">
               <string>File Select</string>
@@ -189,12 +207,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_open_file">
+            <widget class="QPushButton" name="btn_open_file">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
              </property>
              <property name="text">
               <string>Open task file (*.tsk)</string>
@@ -202,15 +222,17 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_file_path">
+            <widget class="QLineEdit" name="ledit_file_path">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
              </property>
              <property name="focusPolicy">
               <enum>Qt::NoFocus</enum>
+             </property>
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
              </property>
              <property name="placeholderText">
               <string>Open a file to see file path</string>
@@ -218,12 +240,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_file_preview">
+            <widget class="QLabel" name="lb_file_preview">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
              </property>
              <property name="text">
               <string>File Preview</string>
@@ -231,12 +255,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QTextBrowser" name="textBrowser_file_preview">
+            <widget class="QTextBrowser" name="txtb_file_preview">
              <property name="font">
               <font>
-               <family>Microsoft YaHei UI</family>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
              </property>
              <property name="placeholderText">
               <string>Open a file to see the preview</string>
@@ -251,37 +277,37 @@
           </attribute>
           <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
-            <widget class="QLabel" name="label_IDLE_mul">
+            <widget class="QLabel" name="lb_IDLE_mul">
              <property name="text">
               <string>Input multiple tasks below</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QTextBrowser" name="textBrowser_IDLE_multiple">
+            <widget class="QTextBrowser" name="txtb_IDLE_multiple">
              <property name="placeholderText">
               <string>Input tasks here, switch lines by pressing the Enter key. Use buttons below to get more functions. </string>
              </property>
             </widget>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <layout class="QHBoxLayout" name="horizontal_layout_4">
              <item>
-              <widget class="QPushButton" name="pushButton_IDLE_mul_edit">
+              <widget class="QPushButton" name="btn_IDLE_mul_edit">
                <property name="text">
                 <string>Edit</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_IDLE_mul_clear">
+              <widget class="QPushButton" name="btn_IDLE_mul_clear">
                <property name="text">
                 <string>Clear</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_IDLE_mul_help">
+              <widget class="QPushButton" name="btn_IDLE_mul_help">
                <property name="text">
                 <string>Help</string>
                </property>
@@ -294,15 +320,17 @@
         </widget>
        </item>
        <item>
-        <widget class="QCommandLinkButton" name="commandLinkButton_run">
+        <widget class="QCommandLinkButton" name="lnkbtn_run">
          <property name="enabled">
           <bool>false</bool>
          </property>
          <property name="font">
           <font>
-           <family>Segoe UI</family>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
          </property>
          <property name="text">
           <string>Run 0 Task(s) From File/ IDLE Multiple</string>
@@ -320,10 +348,10 @@
      <x>0</x>
      <y>0</y>
      <width>763</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuGTB">
+   <widget class="QMenu" name="menu_GTB">
     <property name="title">
      <string>&amp;GTB</string>
     </property>
@@ -333,70 +361,71 @@
      </property>
      <addaction name="action_Quit"/>
     </widget>
-    <widget class="QMenu" name="menuCustomization">
+    <widget class="QMenu" name="menu_Customization">
      <property name="title">
       <string>&amp;Customization</string>
      </property>
-     <widget class="QMenu" name="menuWindow_Style">
+     <widget class="QMenu" name="menu_Window_Style">
       <property name="title">
        <string>&amp;Window Style</string>
       </property>
-      <widget class="QMenu" name="menuLight">
+      <widget class="QMenu" name="menu_Light">
        <property name="title">
         <string>Light</string>
        </property>
-       <addaction name="actionYellow"/>
-       <addaction name="actionBlue"/>
-       <addaction name="actionCyan"/>
-       <addaction name="actionLightgreen"/>
-       <addaction name="actionOrange"/>
-       <addaction name="actionPink"/>
-       <addaction name="actionPurple"/>
-       <addaction name="actionRed"/>
-       <addaction name="actionTeal"/>
-       <addaction name="actionYell9ow"/>
+       <addaction name="action_Yellow"/>
+       <addaction name="action_Blue"/>
+       <addaction name="action_Cyan"/>
+       <addaction name="action_Lightgreen"/>
+       <addaction name="action_Orange"/>
+       <addaction name="action_Pink"/>
+       <addaction name="action_Purple"/>
+       <addaction name="action_Red"/>
+       <addaction name="action_Teal"/>
+       <addaction name="action_Yellow_2"/>
       </widget>
-      <widget class="QMenu" name="menuDark">
+      <widget class="QMenu" name="menu_Dark">
        <property name="title">
         <string>Dark</string>
        </property>
-       <addaction name="actionAmber"/>
-       <addaction name="actionBlue_2"/>
-       <addaction name="actionCyan_2"/>
-       <addaction name="actionLightgreen_2"/>
-       <addaction name="actionPink_2"/>
-       <addaction name="actionPurple_2"/>
-       <addaction name="actionRed_2"/>
-       <addaction name="actionYellow_2"/>
+       <addaction name="action_Amber"/>
+       <addaction name="action_Blue_dark"/>
+       <addaction name="action_Cyan_dark"/>
+       <addaction name="action_Lightgreen_dark"/>
+       <addaction name="action_Pink_dark"/>
+       <addaction name="action_Purple_dark"/>
+       <addaction name="action_Red_dark"/>
+       <addaction name="action_Yellow_dark"/>
       </widget>
-      <addaction name="actionSet_to_default"/>
+      <addaction name="action_Set_to_default"/>
       <addaction name="separator"/>
-      <addaction name="menuLight"/>
-      <addaction name="menuDark"/>
+      <addaction name="menu_Light"/>
+      <addaction name="menu_Dark"/>
      </widget>
-     <widget class="QMenu" name="menuFont">
+     <widget class="QMenu" name="menu_Font">
       <property name="title">
        <string>&amp;Font</string>
       </property>
-      <addaction name="actionSet_to_Default"/>
+      <addaction name="action_Set_to_Default"/>
       <addaction name="separator"/>
-      <addaction name="actionCustomize"/>
+      <addaction name="action_Customize"/>
      </widget>
-     <addaction name="menuFont"/>
-     <addaction name="menuWindow_Style"/>
+     <addaction name="menu_Font"/>
+     <addaction name="menu_Window_Style"/>
     </widget>
-    <widget class="QMenu" name="menuAbout">
+    <widget class="QMenu" name="menu_About">
      <property name="title">
       <string>A&amp;bout</string>
      </property>
-     <addaction name="actionAbout_App"/>
-     <addaction name="actionGithub"/>
+     <addaction name="action_About_App"/>
+     <addaction name="action_Github"/>
+     <addaction name="action_Gitee"/>
     </widget>
     <addaction name="menu_Application"/>
-    <addaction name="menuCustomization"/>
-    <addaction name="menuAbout"/>
+    <addaction name="menu_Customization"/>
+    <addaction name="menu_About"/>
    </widget>
-   <addaction name="menuGTB"/>
+   <addaction name="menu_GTB"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_Quit">
@@ -407,119 +436,124 @@
     <string>Ctrl+Alt+Q</string>
    </property>
   </action>
-  <action name="actionSet_to_Default">
+  <action name="action_Set_to_Default">
    <property name="text">
     <string>Set to Default</string>
    </property>
   </action>
-  <action name="actionCustomize">
+  <action name="action_Customize">
    <property name="text">
     <string>Customize</string>
    </property>
   </action>
-  <action name="actionAbout_App">
+  <action name="action_About_App">
    <property name="text">
     <string>Ab&amp;out App</string>
    </property>
   </action>
-  <action name="actionGithub">
+  <action name="action_Github">
    <property name="text">
     <string>&amp;Github</string>
    </property>
   </action>
-  <action name="actionYellow">
+  <action name="action_Yellow">
    <property name="text">
     <string>Amber</string>
    </property>
   </action>
-  <action name="actionBlue">
+  <action name="action_Blue">
    <property name="text">
     <string>Blue</string>
    </property>
   </action>
-  <action name="actionCyan">
+  <action name="action_Cyan">
    <property name="text">
     <string>Cyan</string>
    </property>
   </action>
-  <action name="actionLightgreen">
+  <action name="action_Lightgreen">
    <property name="text">
     <string>Lightgreen</string>
    </property>
   </action>
-  <action name="actionOrange">
+  <action name="action_Orange">
    <property name="text">
     <string>Orange</string>
    </property>
   </action>
-  <action name="actionPink">
+  <action name="action_Pink">
    <property name="text">
     <string>Pink</string>
    </property>
   </action>
-  <action name="actionPurple">
+  <action name="action_Purple">
    <property name="text">
     <string>Purple</string>
    </property>
   </action>
-  <action name="actionRed">
+  <action name="action_Red">
    <property name="text">
     <string>Red</string>
    </property>
   </action>
-  <action name="actionTeal">
+  <action name="action_Teal">
    <property name="text">
     <string>Teal</string>
    </property>
   </action>
-  <action name="actionYell9ow">
+  <action name="action_Yellow_2">
    <property name="text">
     <string>Yellow</string>
    </property>
   </action>
-  <action name="actionAmber">
+  <action name="action_Amber">
    <property name="text">
     <string>Amber</string>
    </property>
   </action>
-  <action name="actionBlue_2">
+  <action name="action_Blue_dark">
    <property name="text">
     <string>Blue (Default)</string>
    </property>
   </action>
-  <action name="actionCyan_2">
+  <action name="action_Cyan_dark">
    <property name="text">
     <string>Cyan</string>
    </property>
   </action>
-  <action name="actionLightgreen_2">
+  <action name="action_Lightgreen_dark">
    <property name="text">
     <string>Lightgreen</string>
    </property>
   </action>
-  <action name="actionPink_2">
+  <action name="action_Pink_dark">
    <property name="text">
     <string>Pink</string>
    </property>
   </action>
-  <action name="actionPurple_2">
+  <action name="action_Purple_dark">
    <property name="text">
     <string>Purple</string>
    </property>
   </action>
-  <action name="actionRed_2">
+  <action name="action_Red_dark">
    <property name="text">
     <string>Red</string>
    </property>
   </action>
-  <action name="actionYellow_2">
+  <action name="action_Yellow_dark">
    <property name="text">
     <string>Yellow</string>
    </property>
   </action>
-  <action name="actionSet_to_default">
+  <action name="action_Set_to_default">
    <property name="text">
     <string>Set to Default</string>
+   </property>
+  </action>
+  <action name="action_Gitee">
+   <property name="text">
+    <string>Gitee</string>
    </property>
   </action>
  </widget>
@@ -530,7 +564,7 @@
   <connection>
    <sender>action_Quit</sender>
    <signal>triggered()</signal>
-   <receiver>GTBMainWindow</receiver>
+   <receiver>MainWindow</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
