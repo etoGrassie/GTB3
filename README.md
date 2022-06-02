@@ -1,7 +1,7 @@
 # GTB3
 The 3rd version of GTB, and remember that GTB2 is no longer available. 
-
-## Get Started
+GTB is a GUI tool box for Tasking Command System (etoTCS)
+## Get Started. 
 
 ### What is this?
 GTB is a personal tool box, it is for school and class. 
@@ -20,7 +20,7 @@ A normal task command is like this:
 ````text
 print 'Hello, World';
 ````
-Their outputs are both like:
+The output is like:
 > Hello, World
 
 Ok, I think now you know Tasking Command a little. If you want to check out more functions and features, please go to this file:
